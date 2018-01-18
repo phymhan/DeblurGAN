@@ -14,9 +14,9 @@ try:
 except NameError:
     xrange = range  # Python 3
 
-class ConditionalGAN(BaseModel):
+class Fourier(BaseModel):
     def name(self):
-        return 'ConditionalGANModel'
+        return 'FourierModel'
 
     def initialize(self, opt):
         BaseModel.initialize(self, opt)

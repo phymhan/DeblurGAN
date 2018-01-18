@@ -29,23 +29,23 @@ avgSSIM = 0.0
 counter = 0
 
 for i, data in enumerate(dataset):
-	if i >= opt.how_many:
-		break
-	counter = i
-	model.set_input(data)
-	model.test()
-	visuals = model.get_current_visuals()
-	#avgPSNR += PSNR(visuals['fake_B'],visuals['real_B'])
-	#pilFake = Image.fromarray(visuals['fake_B'])
-	#pilReal = Image.fromarray(visuals['real_B'])
-	#avgSSIM += SSIM(pilFake).cw_ssim_value(pilReal)
-	img_path = model.get_image_paths()
-	print('process image... %s' % img_path)
-	visualizer.save_images(webpage, visuals, img_path)
-	
+    if i >= opt.how_many:
+        break
+    counter = i
+    model.set_input(data)
+    model.test()
+    visuals = model.get_current_visuals()
+    #avgPSNR += PSNR(visuals['fake_B'],visuals['real_B'])
+    #pilFake = Image.fromarray(visuals['fake_B'])
+    #pilReal = Image.fromarray(visuals['real_B'])
+    #avgSSIM += SSIM(pilFake).cw_ssim_value(pilReal)
+    img_path = model.get_image_paths()
+    print('process image... %s' % img_path)
+    visualizer.save_images(webpage, visuals, img_path)
+    
 #avgPSNR /= counter
 #avgSSIM /= counter
 #print('PSNR = %f, SSIM = %f' %
-#				  (avgPSNR, avgSSIM))
+#                  (avgPSNR, avgSSIM))
 
 webpage.save()
